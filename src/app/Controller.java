@@ -1,5 +1,8 @@
 package app;
 
+import db.api.DBConnection; 
+import modelos.*; 
+
 import com.jfoenix.controls.JFXTreeTableView;
 import com.jfoenix.controls.RecursiveTreeItem;
 import com.jfoenix.controls.datamodels.treetable.RecursiveTreeObject;
@@ -14,6 +17,8 @@ import javafx.util.Callback;
 
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -31,6 +36,7 @@ public class Controller implements Initializable {
     private TreeTableColumn<Model, String> colEspec;
 
     @FXML
+    
     private JFXTreeTableView<Model> treeTableView;
 
 
@@ -70,7 +76,20 @@ public class Controller implements Initializable {
         TreeItem<Model> root=new RecursiveTreeItem<Model>(list, RecursiveTreeObject::getChildren);
         treeTableView.setRoot(root);
         treeTableView.setShowRoot(false);
-        list.addAll(new Model("10/05/2018","Jonas Silva","Dr. Ray","Cirurgi√£o pl√°stico"));
-        list.addAll(new Model("20/10/2018","Felipe Smith","Hans Chucrute","Urologista"));
+        
+
+        DBConnection db = new DBConnection(); 
+        try {
+			List<String> l = db.consultaTabelas(Medico.TABELA_MEDICOS);
+			l.forEach(elemento -> {String[] campos = elemento.split("#"); list.add(new Model(campos[0],campos[1],campos[2],campos[3]));});
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        
+        
+        
+        //list.addAll(new Model("10/05/2018","Jonas Silva","Dr. Ray","Cirurgi„oo pl·stico"));
+        //list.addAll(new Model("20/10/2018","Felipe Smith","Hans Chucrute","Urologista"));
     }
     }
