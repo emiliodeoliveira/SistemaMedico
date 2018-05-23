@@ -22,5 +22,5 @@ Foram utilizadas as seguintes tecnologias:
 - Criação das classes.
 
 
-Preview da tela de Consultas
-(https://github.com/emiliodeoliveira/SistemaMedico/tree/master/img/consultas_preview.png)
+Preview da tela de Consultas:
+![Screenshot](https://github.com/emiliodeoliveira/SistemaMedico/tree/master/img/consultas_preview.png)
