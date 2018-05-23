@@ -23,4 +23,4 @@ Foram utilizadas as seguintes tecnologias:
 
 
 Preview da tela de Consultas:
-![Screenshot](https://github.com/emiliodeoliveira/SistemaMedico/tree/master/img/consultas_preview.png)
+![Screenshot](https://github.com/emiliodeoliveira/SistemaMedico/blob/master/img/consultas_preview.png)
