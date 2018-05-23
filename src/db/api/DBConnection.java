@@ -1,6 +1,5 @@
 package db.api;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,47 +7,44 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
-
 import modelos.Consulta;
 import modelos.Medico;
 import modelos.Paciente;
-
-
 //import java.text.SimpleDateFormat;
 //import java.sql.Date;
 
 public class DBConnection {
-//
-//	public static void main(String args[]) {
-//		try {
-//			DBConnection objeto = new DBConnection();
-//			
-//			//consulta pacientes
-//			objeto.consultaTabelas(Paciente.TABELA_PACIENTES).stream().forEach((String x) -> {System.out.println(String.join(" ", x.split("#")));});
-//			System.out.println("---------------");
-//			
-////			//consulta consultas
-//			objeto.consultaTabelas(Consulta.TABELA_CONSULTAS).stream().forEach((x)->{System.out.println(String.join(" ",x.split("#")));});
-//			System.out.println("---------------");
-//			
-//			//consulta medicos
-//			objeto.consultaTabelas(Medico.TABELA_MEDICOS).stream().forEach((x)->{System.out.println(String.join(" ",x.split("#")));});
-//			System.out.println("---------------");
-//			
-//			//consulta especializacao
-//			objeto.consultaTabelas(DBConnection.TABELA_ESPECIALIZACAO).stream().forEach((x)->{System.out.println(String.join(" ",x.split("#")));});
-//
-//			//insercao
-//			Medico medi = new Medico("Zeze", "M", "Dermatologia", 7234,new Date(new SimpleDateFormat("dd/MM/yyyy").parse("02/01/1991").getTime()), "72345578","ze@gmail.com", "Rua Parana 667", "222388888");
-//			Paciente p = new Paciente("Carla", "F", "554564", new Date(new SimpleDateFormat("dd/MM/yyyy").parse("02/01/1991").getTime()), "3711817", "carla@gmail.com", "Rua ninguem, 000");
-//			System.out.println(p.createQueryInsertPessoa());
-//			System.out.println(p.createQueryInsertPaciente());
-//			objeto.createPacienteInDB(p);	 
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//
-//		}
-//	}
+	//
+	//	public static void main(String args[]) {
+	//		try {
+	//			DBConnection objeto = new DBConnection();
+	//			
+	//			//consulta pacientes
+	//			objeto.consultaTabelas(Paciente.TABELA_PACIENTES).stream().forEach((String x) -> {System.out.println(String.join(" ", x.split("#")));});
+	//			System.out.println("---------------");
+	//			
+	////			//consulta consultas
+	//			objeto.consultaTabelas(Consulta.TABELA_CONSULTAS).stream().forEach((x)->{System.out.println(String.join(" ",x.split("#")));});
+	//			System.out.println("---------------");
+	//			
+	//			//consulta medicos
+	//			objeto.consultaTabelas(Medico.TABELA_MEDICOS).stream().forEach((x)->{System.out.println(String.join(" ",x.split("#")));});
+	//			System.out.println("---------------");
+	//			
+	//			//consulta especializacao
+	//			objeto.consultaTabelas(DBConnection.TABELA_ESPECIALIZACAO).stream().forEach((x)->{System.out.println(String.join(" ",x.split("#")));});
+	//
+	//			//insercao
+	//			Medico medi = new Medico("Zeze", "M", "Dermatologia", 7234,new Date(new SimpleDateFormat("dd/MM/yyyy").parse("02/01/1991").getTime()), "72345578","ze@gmail.com", "Rua Parana 667", "222388888");
+	//			Paciente p = new Paciente("Carla", "F", "554564", new Date(new SimpleDateFormat("dd/MM/yyyy").parse("02/01/1991").getTime()), "3711817", "carla@gmail.com", "Rua ninguem, 000");
+	//			System.out.println(p.createQueryInsertPessoa());
+	//			System.out.println(p.createQueryInsertPaciente());
+	//			objeto.createPacienteInDB(p);	 
+	//		} catch (Exception e) {
+	//			e.printStackTrace();
+	//
+	//		}
+	//	}
 
 	public static final String TABELA_ESPECIALIZACAO = "RESUMO_ESPECIALIDADES";
 	private Connection conexao = null;
@@ -72,7 +68,7 @@ public class DBConnection {
 		statimant.execute();
 		statimant.close();
 	}
-	
+
 	public void createPacienteInDB(Paciente paci) throws SQLException{
 		conectarBanco();
 		mandaInsert(paci.createQueryInsertPessoa());
@@ -92,12 +88,12 @@ public class DBConnection {
 	public List<String> consultaTabelas(String tabela) throws SQLException {
 		if (tabela == null || tabela.isEmpty()
 				|| !(tabela.equals(Medico.TABELA_MEDICOS)) && !(tabela.equals(Consulta.TABELA_CONSULTAS))
-						&& !(tabela.equals(Paciente.TABELA_PACIENTES)) && !(tabela.equals(TABELA_ESPECIALIZACAO)))
+				&& !(tabela.equals(Paciente.TABELA_PACIENTES)) && !(tabela.equals(TABELA_ESPECIALIZACAO)))
 			throw new IllegalArgumentException();
 
 		List<String> QueryResult = null;
 		String statement = "SELECT * FROM " + tabela;
-		
+
 		conectarBanco();
 
 		PreparedStatement stmt = conexao.prepareStatement(statement);

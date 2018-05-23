@@ -10,8 +10,7 @@ public class Consulta {
 	private String paciente;
 	private Date data;
 	private int crm;
-	public static String campos[] = {"medico", "especialidade", "paciente", "data", "crm"};
-	
+	public static String campos[] = {"medico", "especialidade", "paciente", "data", "crm"};	
 	
 	public Consulta(String medico, String especialidade, String paciente, Date data, int crm) {
 		this.medico = medico;

@@ -5,66 +5,64 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Model extends RecursiveTreeObject<Model> {
+	StringProperty data;
+	StringProperty paciente;
+	StringProperty medico;
+	StringProperty especialidade;
 
+	public Model(String data ,String paciente ,String medico ,String especialidade){
 
-    StringProperty data;
-    StringProperty paciente;
-    StringProperty medico;
-    StringProperty especialidade;
+		this.data=new SimpleStringProperty(data);
+		this.paciente=new SimpleStringProperty(paciente);
+		this.medico=new SimpleStringProperty(medico);
+		this.especialidade=new SimpleStringProperty(especialidade);
+	}
 
-    public Model(String data ,String paciente ,String medico ,String especialidade){
+	public String getData() {
+		return data.get();
+	}
 
-        this.data=new SimpleStringProperty(data);
-        this.paciente=new SimpleStringProperty(paciente);
-        this.medico=new SimpleStringProperty(medico);
-        this.especialidade=new SimpleStringProperty(especialidade);
-    }
+	public StringProperty dataProperty() {
+		return data;
+	}
 
-    public String getData() {
-        return data.get();
-    }
+	public void setData(String data) {
+		this.data.set(data);
+	}
 
-    public StringProperty dataProperty() {
-        return data;
-    }
+	public String getPaciente() {
+		return paciente.get();
+	}
 
-    public void setData(String data) {
-        this.data.set(data);
-    }
+	public StringProperty pacienteProperty() {
+		return paciente;
+	}
 
-    public String getPaciente() {
-        return paciente.get();
-    }
+	public void setPaciente(String paciente) {
+		this.paciente.set(paciente);
+	}
 
-    public StringProperty pacienteProperty() {
-        return paciente;
-    }
+	public String getMedico() {
+		return medico.get();
+	}
 
-    public void setPaciente(String paciente) {
-        this.paciente.set(paciente);
-    }
+	public StringProperty medicoProperty() {
+		return medico;
+	}
 
-    public String getMedico() {
-        return medico.get();
-    }
+	public void setMedico(String medico) {
+		this.medico.set(medico);
+	}
 
-    public StringProperty medicoProperty() {
-        return medico;
-    }
+	public String getEspecialidade() {
+		return especialidade.get();
+	}
 
-    public void setMedico(String medico) {
-        this.medico.set(medico);
-    }
+	public StringProperty especialidadeProperty() {
+		return especialidade;
+	}
 
-    public String getEspecialidade() {
-        return especialidade.get();
-    }
-
-    public StringProperty especialidadeProperty() {
-        return especialidade;
-    }
-
-    public void setEspecialidade(String especialidade) {
-        this.especialidade.set(especialidade);
-    }
+	public void setEspecialidade(String especialidade) {
+		this.especialidade.set(especialidade);
+	}
 }

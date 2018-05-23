@@ -3,16 +3,14 @@ import java.sql.Date;
 
 public class Medico extends Pessoas {
 
-	public static final String TABELA_MEDICOS = "RESUMO_MEDICOS";
-
-	
+	public static final String TABELA_MEDICOS = "RESUMO_MEDICOS";	
 
 	private String especialidade;
 	private int crm;
 
 
 	public static String campos[] = { "nome", "sexo", "especialidade", "crm", "data_de_nascimento", "telefone", "email",
-			"endereco" };
+	"endereco" };
 
 	public Medico(String nome, String sexo, String especialidade, int crm, Date data, String numerotel, String email,
 			String endereco, String cpf) {
@@ -20,7 +18,7 @@ public class Medico extends Pessoas {
 		this.especialidade = especialidade;
 		this.crm = crm;
 	}
-	
+
 	public String createQueryInsertMedico() {
 		return "INSERT INTO MEDICOS(idMedico, crm, idEspec, idPessoa) VALUES" 
 				+ "(SEQ_IDMEDICOS.NEXTVAL, '" + crm + "',(SELECT idEspec FROM especialidades WHERE nome='"+especialidade+"'), SEQ_IDPESSOAS.currval)";
