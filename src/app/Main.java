@@ -1,4 +1,9 @@
 package app;
+/**
+ * @author IT Academy #4
+ * 
+ * 
+ */
 
 import javafx.application.Application; 
 import javafx.fxml.FXMLLoader;

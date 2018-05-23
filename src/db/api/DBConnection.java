@@ -14,7 +14,7 @@ import modelos.Paciente;
 //import java.sql.Date;
 
 public class DBConnection {
-	//
+	//// Efetua os testes através do método main.
 	//	public static void main(String args[]) {
 	//		try {
 	//			DBConnection objeto = new DBConnection();

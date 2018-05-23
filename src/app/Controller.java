@@ -65,13 +65,13 @@ public class Controller implements Initializable {
 				return param.getValue().getValue().especialidade;
 			}
 		});
-		// Cria uma lista para testes.
+		// Cria a lista usando observableArrayList.
 		list= FXCollections.observableArrayList();
 		TreeItem<Model> root=new RecursiveTreeItem<Model>(list, RecursiveTreeObject::getChildren);
 		treeTableView.setRoot(root);
 		treeTableView.setShowRoot(false);
 
-
+		// Cria conexão com o banco de dados e popula a lista com os dados.
 		DBConnection db = new DBConnection(); 
 		try {
 			List<String> l = db.consultaTabelas(Medico.TABELA_MEDICOS);
