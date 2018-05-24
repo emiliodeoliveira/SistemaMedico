@@ -13,6 +13,12 @@ import modelos.Paciente;
 //import java.text.SimpleDateFormat;
 //import java.sql.Date;
 
+/**
+ * @author IT Academy #4
+ * 
+ * 
+ */
+
 public class DBConnection {
 	//// Efetua os testes através do método main.
 	//	public static void main(String args[]) {
